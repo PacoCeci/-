@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTMLCSS</title>
+  </head>
+
+  <style>
+    .container {
+      border: 1px solid #ccc;
+      margin: 10px;
+      padding: 10px;
+    }
+    .item {
+      background-color: #ccc;
+    }
+    .container-1 {
+      text-align: center;
+    }
+    .container-2 .item {
+      width: 500px;
+      margin: auto;
+    }
+    .container-3 {
+      position: relative;
+      height: 100px;
+    }
+    .container-3 .item {
+      width: 300px;
+      height: 100px;
+      position: absolute;
+      left: 50%;
+      /* 1. margin-left */
+      /* margin-left: -150px; */
+      /* 2. transform */
+      transform: translateX(-50%);
+    }
+  </style>
+
+  <body>
+    <div class="container container-1">
+      <span>some inline content</span>
+    </div>
+    <div class="container container-2">
+      <div class="item">some block content</div>
+    </div>
+    <div class="container container-3">
+      <div class="item">some absolute content</div>
+    </div>
+  </body>
+</html>

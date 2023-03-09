@@ -122,3 +122,18 @@
    - align-items：交叉轴对齐方式
    - flex-wrap：换行
    - align-self：子元素在交叉轴的对齐方式
+
+## 7. CSS 定位
+
+### 1. absolute 和 relative 分别一句什么定位
+
+1. relative 依据自身定位
+2. absolute 依据最近一层是定位元素定位
+3. 定位元素
+   - absolute relative fixed
+   - 如果没有找到父元素是定位元素，那么 body 为定位元素
+
+### 2. 居中对齐有哪些实现方式
+
+1. 水平居中
+2. 垂直居中
