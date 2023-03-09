@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTMLCSS</title>
+  </head>
+
+  <style>
+    body {
+      margin: 20px;
+    }
+    .float-left {
+      float: left;
+    }
+    .clearfix:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    .container {
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+    .container .item {
+      width: 100px;
+      height: 100px;
+    }
+    .container .border-blue {
+      border: 1px solid blue;
+    }
+    .container .border-red {
+      border: 1px solid red;
+    }
+  </style>
+
+  <body>
+    <p>test margin top bottom负数情况</p>
+    <div class="container">
+      <div class="item border-blue">item 1</div>
+      <div class="item border-red">item 2</div>
+    </div>
+    <p>test margin left right负数情况</p>
+    <div class="container clearfix">
+      <div class="item border-blue float-left">item 3</div>
+      <div class="item border-red float-left">item 4</div>
+    </div>
+  </body>
+</html>

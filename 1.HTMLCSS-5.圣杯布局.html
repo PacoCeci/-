@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTMLCSS</title>
+  </head>
+
+  <style>
+    body {
+      min-width: 550px;
+    }
+    #header {
+      text-align: center;
+      background-color: #f1f1f1;
+    }
+    #center {
+      background-color: #ccc;
+      width: 100%;
+    }
+    #left {
+      background-color: yellow;
+      width: 200px;
+      margin-left: -100%;
+      position: relative;
+      right: 200px;
+    }
+    #right {
+      background-color: red;
+      width: 150px;
+      margin-right: -150px;
+    }
+
+    #footer {
+      text-align: center;
+      background-color: #f1f1f1;
+      /* clear: both; */
+    }
+    /* 手写clear fix */
+    .clearfix:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    #container {
+      padding-left: 200px;
+      padding-right: 150px;
+    }
+    #container .column {
+      float: left;
+    }
+  </style>
+
+  <body>
+    <div id="header">this is header</div>
+    <div id="container" class="clearfix">
+      <div id="center" class="column">this is center</div>
+      <div id="left" class="column">this is left</div>
+      <div id="right" class="column">this is right</div>
+    </div>
+    <div id="footer">this is footer</div>
+  </body>
+</html>
