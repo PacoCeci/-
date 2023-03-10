@@ -7,12 +7,12 @@
 
 ### 2. 什么是块状元素
 
-1. display 为 block/table
+1. 独占一行，display 为 block/table
 2. 元素有：div h1 table ul ol p
 
 ### 3. 什么是行内元素
 
-1. display 为 inline/inline-block
+1. 不会独占一行，display 为 inline/inline-block
 2. 元素有 span img input button
 
 # CSS
@@ -35,7 +35,7 @@
 ```
 
 1. offsetWidth = (内容宽度 + 内边距 + 边框)， 不包括外边距
-2. 答案是：100 + 10 _ 2 + 1 _ 2 = 122px
+2. 答案是：100 + 10 \* 2 + 1 \* 2 = 122px
 3. 补充：如果让 offsetWidth 等于 100px，该如何做？
 
 ```
@@ -80,7 +80,7 @@
 
 ## 4. BFC 理解与应用
 
-1. Block format content 块级格式化上下文
+1. Block Format Content 块级格式化上下文
 2. 一块独立渲染区域，内部元素的渲染不会影响边界以外的元素
 3. 形成 BFC 的常见条件
    - float 不是 none
@@ -102,14 +102,14 @@
 3. 手写 clear fix
 
 ```
-    .clearfix:after {
-      content: "";
-      display: table;
-      clear: both;
-    }
-    .clear {
-        *zoom: 1; /* 兼容IE低版本 */
-    }
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.clear {
+    *zoom: 1; /* 兼容IE低版本 */
+}
 ```
 
 ## 6. flex 布局
@@ -136,4 +136,59 @@
 ### 2. 居中对齐有哪些实现方式
 
 1. 水平居中
+   1. inline 元素：`text-align: center`
+   2. block 元素：`margin: auto`
+   3. absolute 元素：`left: 50% + margin-left 负值`
 2. 垂直居中
+   1. inline 元素：`inline-height的值等于height的值`
+   2. absolute 元素：`top :50% + margin-top 负值`
+   3. absolute 元素：`transform(-50%, -50%)`
+   4. absolute 元素：`top, left, bottom, right = 0 + margin: auto`
+
+## 8. line-height 如何继承
+
+### 下面例子的 p 标签的行高是多少？
+
+1. 具体数值，如 30px，则继承该值
+2. 比例，如 1.5，则继承该比例
+3. 写百分比，如 200%，则继承计算出来的值，不直接继承该百分比
+4. 答案是：20 \* 200% = 40px
+
+```
+<style>
+    body {
+        font-size: 20px;
+        line-height: 200%;
+    }
+    p {
+        font-size: 16px;
+    }
+</style>
+<body>
+    <p>AAA</p>
+</body>
+```
+
+## 9.响应式
+
+### 1. 长度单位种类
+
+1. px，绝对长度单位，最常用
+2. em，相对长度单位，相对于父元素，不常用
+3. rem，相对长度单位，相对于根元素(html)，常用于响应式布局
+
+### 2. 响应式布局的常用方案
+
+1. media-query，根据不同的屏幕宽度设置根元素 font-size
+2. rem，基于根元素设置宽度
+
+### 3. vw 和 vh
+
+1. rem 的弊端：阶梯性
+2. 网页视口尺寸
+   - 屏幕（显示器/手机屏幕）高度：window.screen.height
+   - 浏览器网页视口高度：window.innerHeight
+   - body 高度：document.body.clientHeight
+3. vh 网页视口高度的 1/100, window.innerHeight === 100vh
+4. vw 网页视口宽度的 1/100, window.innerWidth === 100vw
+5. vmax 取 vh/vw 两者最大值，vmin 取 vh/vw 两者最小值
