@@ -149,12 +149,12 @@ const p1 = new MyPromise((resolve, reject) => {
 });
 
 const p1_1 = p1.then((data) => {
-  console.log(data);
+  console.log(data); // 100
   return data + 1;
 });
 
 const p1_2 = p1_1.then((data) => {
-  console.log(data);
+  console.log(data); // 101
   return data + 2;
 });
 
@@ -164,7 +164,7 @@ const p2 = new MyPromise((resolve, reject) => {
 });
 
 p2.catch((error) => {
-  console.error(error);
+  console.error(error); // 200
 });
 
 // ######### 异步resolve ############
@@ -175,14 +175,14 @@ const p3 = new MyPromise((resolve) => {
 });
 
 p3.then((data) => {
-  console.log(data);
+  console.log(data); // 300
 });
 
 // ######### MyPromise.resolve ############
 const p4 = MyPromise.resolve(400);
 
 p4.then((data) => {
-  console.log(data);
+  console.log(data); // 400
 });
 
 // ######### MyPromise.all (resolve) ############
@@ -197,9 +197,7 @@ const p5 = MyPromise.all([
 ]);
 
 p5.then((data) => {
-  console.log(data);
-}).catch((error) => {
-  console.error(error);
+  console.log(data); // [ 500, 600, 700 ]
 });
 
 // ######### MyPromise.all (reject) ############
@@ -209,9 +207,9 @@ const p6 = MyPromise.all([
 ]);
 
 p6.then((data) => {
-  console.log(data);
+  console.log(data); // 不执行
 }).catch((error) => {
-  console.error(error);
+  console.error(error); // error from p6
 });
 
 // ######### MyPromise.race ############
@@ -225,5 +223,5 @@ const p7 = MyPromise.race([
 ]);
 
 p7.then((data) => {
-  console.log(data);
+  console.log(data); // 1000
 });
