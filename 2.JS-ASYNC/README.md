@@ -78,3 +78,11 @@
 
 1. 宏任务：由浏览器规定，属于 Web APIs，宏任务存放在 callback queue
 2. 微任务：是由 ES6 语法规定，微任务存放在 micro task queue
+
+## 5. 手写 Promise
+
+### 1. 初始化&异步调用
+
+### 2. then catch 链式调用
+
+### 3. 支持 API：resolve，reject，all，race
