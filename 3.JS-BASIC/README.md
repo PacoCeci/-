@@ -110,3 +110,111 @@ console.log(10 && 0);        // 0
 console.log('' || 'abc');    // 'abc'
 console.log(!window.abc);    // true
 ```
+
+# 2. 原型和原型链
+
+## 1. class
+
+1. constructor
+2. 属性
+3. 方法
+
+## 2. 继承 extends
+
+## 3. 类型判断 instanceof
+
+```
+class People {}
+
+class Student extends People {}
+
+const s = new Student();
+
+s instanceof Student;   // true
+s instanceof People;    // true
+s instanceof Object;    // true
+
+[] instanceof Array;    // true
+[] instanceof Object;   // true
+
+{} instanceof Object;   // true
+```
+
+## 4. 原型
+
+1. class 实际上是函数
+
+```
+typeof People;  // 'function'
+typeof Student; // 'function'
+```
+
+2. 显示原型和隐式原型
+   - 每个 class 都有显示原型 prototype
+   - 每个实例都有隐式原型\_\_proto\_\_
+   - 实例的 \_\_proto\_\_ 指向对应 class 的 prototype
+
+```
+console.log( Student.prototype );   // People {constructor: ƒ}
+console.log( s.__proto__ );         // People {constructor: ƒ}
+console.log( s.__proto__ === Student.prototype );   // true
+```
+
+3. 基于原型的执行规则
+   - 先在自身属性和方法寻找
+   - 如果找不到就去 \_\_proto\_\_ 中查找
+
+## 5. 原型链
+
+```
+Student.prototype.__proto__ === People.prototype; // true
+```
+
+![image](%E5%8E%9F%E5%9E%8B%E9%93%BE.png)
+
+1. class 是 ES6 语法规范，由 ECMA 发布，ECMA 没有规定如何实现
+2. V8 引擎实现
+
+# 3. 作用域和自由变量
+
+## 1. 作用域
+
+1. 全局作用域
+2. 函数作用域
+3. 块级作用域（ES6）
+
+## 2. 自由变量
+
+1. 一个变量在当前作用域没有定义，但被使用
+2. 向上级作用域，一层一层一次寻找，直至找到为止
+3. 如果到全局作用域都没找到，则报错 XXX is not defined
+
+## 3. 闭包
+
+1. 作用域应用的特殊情况，有两种表现
+   - 函数作为参数被传递
+   - 函数作为返回值被返回
+2. 闭包中自由变量的查找，是在函数定义的地方，向上级作用域查找，不是在执行的地方
+3. 闭包的应用
+   - 隐藏数据（私有变量）
+   -
+
+## 4. this
+
+### 1. 使用场景
+
+1. 作为普通函数
+2. 使用 call apply bind
+3. 作为对象方法被调用
+4. 在 class 方法中调用
+5. 箭头函数
+
+### 2. this 取什么值是执行的时候确定的，不是定义的时候确定的
+
+# 4. 异步和单线程
+
+## 1. 单线程和异步
+
+1. JS 是单线程语言，只能同时做一件事
+2. 浏览器和 nodejs 支持 JS 启动进程，如 Web Worker
+3. JS 和 DOM 渲染共用一个线程，因为 JS 可修改 DOM 结构
