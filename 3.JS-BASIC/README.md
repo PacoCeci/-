@@ -36,16 +36,12 @@ function fn() {};           // 特殊引用类型，但不用于存储数据，�
 // 判断值类型
 let a;
 typeof a;       // 'undefined'
-
 const str = 'abc';
 typeof str;     // 'string'
-
 const n = 100;
 typeof n;       // 'number'
-
 const b = true;
 typeof b;       // 'boolean'
-
 const s = Symbol('s');
 typeof s;       // 'symbol'
 ```
@@ -125,18 +121,13 @@ console.log(!window.abc);    // true
 
 ```
 class People {}
-
 class Student extends People {}
-
 const s = new Student();
-
 s instanceof Student;   // true
 s instanceof People;    // true
 s instanceof Object;    // true
-
 [] instanceof Array;    // true
 [] instanceof Object;   // true
-
 {} instanceof Object;   // true
 ```
 
@@ -155,8 +146,8 @@ typeof Student; // 'function'
    - 实例的 \_\_proto\_\_ 指向对应 class 的 prototype
 
 ```
-console.log( Student.prototype );   // People {constructor: ƒ}
-console.log( s.__proto__ );         // People {constructor: ƒ}
+console.log( Student.prototype );   // People {constructor: ƒ}
+console.log( s.__proto__ );         // People {constructor: ƒ}
 console.log( s.__proto__ === Student.prototype );   // true
 ```
 
@@ -213,8 +204,24 @@ Student.prototype.__proto__ === People.prototype; // true
 
 # 4. 异步和单线程
 
-## 1. 单线程和异步
+## 1. 单线程
 
 1. JS 是单线程语言，只能同时做一件事
-2. 浏览器和 nodejs 支持 JS 启动进程，如 Web Worker
+2. 浏览器和 nodejs 只支持 JS 启动进程，如 Web Worker
 3. JS 和 DOM 渲染共用一个线程，因为 JS 可修改 DOM 结构
+
+## 2. 异步
+
+1. 异步不会阻塞代码的执行，它解决了 JS 单线程的问题，遇到等待不能卡
+2. 异步一般采用回调函数 callback 形式
+
+## 3. 应用场景
+
+1. 网络请求，如 AJAX 和图片加载
+2. 定时任务，如 setTimeout
+
+## 4. 异步实现形式
+
+1. callback：有 callback hell 问题
+2. promise: 解决 callback hell 问题
+3. async / await
