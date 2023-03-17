@@ -167,7 +167,7 @@ for(let i = 0; i < length; i++) { ... }
 ## 3. 插件
 
 1. `$.ajax()`
-2. `fetch()`
+2. `fetch()` 不是基于 XMLHttpRequest
 3. `axios`
    - 支持浏览器和 nodejs 两个环境
    - support intercept request and response
