@@ -11,56 +11,56 @@
 
 ### 2. 常见值类型
 
-```
-let a;                  // 'undefined'
-const s = 'abc';        // 'string'
-const n = 100;          // 'number'
-const b = true;         // 'boolean'
-const s = Symbol('s');  // 'symbol'
+```js
+let a; // 'undefined'
+const s = 'abc'; // 'string'
+const n = 100; // 'number'
+const b = true; // 'boolean'
+const s = Symbol('s'); // 'symbol'
 ```
 
 ### 3. 常见引用类型
 
-```
-const obj = { x: 100 };     // object
-const arr = ['a', 'b'];     // array
-const n = null;             // 特殊引用类型，指针指向为空地址
-function fn() {};           // 特殊引用类型，但不用于存储数据，所以没有“拷贝、复制函数”这一说
+```js
+const obj = { x: 100 }; // object
+const arr = ['a', 'b']; // array
+const n = null; // 特殊引用类型，指针指向为空地址
+function fn() {} // 特殊引用类型，但不用于存储数据，所以没有“拷贝、复制函数”这一说
 ```
 
 ### 4. 类型判断 typeof
 
 1. 能判断所有值类型
 
-```
+```js
 // 判断值类型
 let a;
-typeof a;       // 'undefined'
+typeof a; // 'undefined'
 const str = 'abc';
-typeof str;     // 'string'
+typeof str; // 'string'
 const n = 100;
-typeof n;       // 'number'
+typeof n; // 'number'
 const b = true;
-typeof b;       // 'boolean'
+typeof b; // 'boolean'
 const s = Symbol('s');
-typeof s;       // 'symbol'
+typeof s; // 'symbol'
 ```
 
 2. 能判断函数
 
-```
+```js
 // 判断函数
-typeof console.log;     // 'function'
-typeof function () {}   // 'function'
+typeof console.log; // 'function'
+typeof function () {}; // 'function'
 ```
 
 3. 能识别引用类型，但是不能细分
 
-```
+```js
 // 能识别引用类型（不能再继续识别）
-typeof null;        // 'object'
-typeof ['a', 'b'];  // 'object'
-typeof { x: 100 };  // 'object'
+typeof null; // 'object'
+typeof ['a', 'b']; // 'object'
+typeof { x: 100 }; // 'object'
 ```
 
 ## 2. 变量计算
@@ -69,22 +69,22 @@ typeof { x: 100 };  // 'object'
 
 1. 字符串拼接
 
-```
-const a = 100 + 10;     // 110
-const b = 100 + '10';   // '10010'
-const c = true + '10';  // 'true10'
+```js
+const a = 100 + 10; // 110
+const b = 100 + '10'; // '10010'
+const c = true + '10'; // 'true10'
 ```
 
 2. == 会尝试强制类型转换
 
 推荐用 ===，除了判断是 null 或者 undefined 时用 `if (obj.a == null)`
 
-```
-100 == '100';       // true
-0 == '';            // true
-0 == false;         // true
-false == '';        // true
-null == undefined;  // true
+```js
+100 == '100'; // true
+0 == ''; // true
+0 == false; // true
+false == ''; // true
+null == undefined; // true
 ```
 
 3. if 语句和逻辑运算
@@ -101,10 +101,10 @@ null == undefined;  // true
   - ||
   - ！
 
-```
-console.log(10 && 0);        // 0
-console.log('' || 'abc');    // 'abc'
-console.log(!window.abc);    // true
+```js
+console.log(10 && 0); // 0
+console.log('' || 'abc'); // 'abc'
+console.log(!window.abc); // true
 ```
 
 # 2. 原型和原型链
@@ -119,7 +119,7 @@ console.log(!window.abc);    // true
 
 ## 3. 类型判断 instanceof
 
-```
+```js
 class People {}
 class Student extends People {}
 const s = new Student();
@@ -135,8 +135,8 @@ s instanceof Object;    // true
 
 1. class 实际上是函数
 
-```
-typeof People;  // 'function'
+```js
+typeof People; // 'function'
 typeof Student; // 'function'
 ```
 
@@ -145,10 +145,10 @@ typeof Student; // 'function'
    - 每个实例都有隐式原型\_\_proto\_\_
    - 实例的 \_\_proto\_\_ 指向对应 class 的 prototype
 
-```
-console.log( Student.prototype );   // People {constructor: ƒ}
-console.log( s.__proto__ );         // People {constructor: ƒ}
-console.log( s.__proto__ === Student.prototype );   // true
+```js
+console.log(Student.prototype); // People {constructor: ƒ}
+console.log(s.__proto__); // People {constructor: ƒ}
+console.log(s.__proto__ === Student.prototype); // true
 ```
 
 3. 基于原型的执行规则
@@ -157,7 +157,7 @@ console.log( s.__proto__ === Student.prototype );   // true
 
 ## 5. 原型链
 
-```
+```js
 Student.prototype.__proto__ === People.prototype; // true
 ```
 

@@ -55,7 +55,7 @@
 1. DOM 操作非常昂贵，避免频繁 DOM 操作
 2. 对 DOM 查询做缓存
 
-```
+```js
 // 避免
 for(let i = 0; i < document.getElementsByTagName('p').length; i++) { ... }
 // 缓存(推荐)

@@ -19,16 +19,18 @@
 
 ## 1. 盒模型宽度计算
 
+每个元素可以看作是一个矩形的盒子，它包括了内容 content，内边距 padding，边框 border 和外边距 margin
+
 ### div1 的 offsetWidth 是多大？
 
-```
+```html
 <style>
-    #div1 {
-        width: 100px;
-        padding: 10px;
-        border: 1px solid #ccc;
-        margin: 10px;
-    }
+  #div1 {
+    width: 100px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin: 10px;
+  }
 </style>
 
 <div id="div1">HTMLCSS</div>
@@ -38,12 +40,12 @@
 2. 答案是：100 + 10 \* 2 + 1 \* 2 = 122px
 3. 补充：如果让 offsetWidth 等于 100px，该如何做？
 
-```
+```html
 <style>
-    #div1 {
-        ...
-        box-sizing: border-box; /* width = content + padding + border */
-    }
+  #div1 {
+      ...
+      box-sizing: border-box; /* width = content + padding + border */
+  }
 </style>
 ```
 
@@ -51,14 +53,14 @@
 
 ### AAA 和 BBB 之间的距离是多少？
 
-```
+```html
 <style>
-    p {
-        font-size: 16px;
-        line-height: 1;
-        margin-top: 10px;
-        margin-bottom: 15px;
-    }
+  p {
+    font-size: 16px;
+    line-height: 1;
+    margin-top: 10px;
+    margin-bottom: 15px;
+  }
 </style>
 
 <p>AAA</p>
@@ -101,14 +103,14 @@
    - 放置中间内容被两侧覆盖，一个用 padding 一个用 margin
 3. 手写 clear fix
 
-```
+```css
 .clearfix:after {
-    content: "";
-    display: table;
-    clear: both;
+  content: '';
+  display: table;
+  clear: both;
 }
 .clear {
-    *zoom: 1; /* 兼容IE低版本 */
+  *zoom: 1; /* 兼容IE低版本 */
 }
 ```
 
@@ -154,18 +156,18 @@
 3. 写百分比，如 200%，则继承计算出来的值，不直接继承该百分比
 4. 答案是：20 \* 200% = 40px
 
-```
+```html
 <style>
-    body {
-        font-size: 20px;
-        line-height: 200%;
-    }
-    p {
-        font-size: 16px;
-    }
+  body {
+    font-size: 20px;
+    line-height: 200%;
+  }
+  p {
+    font-size: 16px;
+  }
 </style>
 <body>
-    <p>AAA</p>
+  <p>AAA</p>
 </body>
 ```
 

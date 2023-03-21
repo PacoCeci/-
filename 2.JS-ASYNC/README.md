@@ -81,8 +81,8 @@
 
 ## 5. 手写 Promise
 
-### 1. 初始化&异步调用
+1. 初始化&异步调用
 
-### 2. then catch 链式调用
+2. then catch 链式调用
 
-### 3. 支持 API：resolve，reject，all，race
+3. 支持 API：resolve，reject，all，race
