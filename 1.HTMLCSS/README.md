@@ -83,13 +83,15 @@
 ## 4. BFC 理解与应用
 
 1. Block Format Content 块级格式化上下文
-2. 一块独立渲染区域，内部元素的渲染不会影响边界以外的元素
-3. 形成 BFC 的常见条件
+2. 一块独立渲染区域，内部元素的渲染不会影响边界以外的元素，反之亦然。用于控制块元素如何在容器中布局和相互作用。
+3. 如何创建 BFC：
    - float 不是 none
    - position 是 absolute 或者 fixed
    - overflow 不是 visible
    - display 是 flex 或者 inline-block 等
-4. BFC 的常见应用 - 清除浮动
+4. BFC 的常见应用
+   - 清除浮动
+   - 实现两栏布局
 
 ## 5. float 布局
 
