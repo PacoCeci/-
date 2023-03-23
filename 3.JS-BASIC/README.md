@@ -188,7 +188,6 @@ Student.prototype.__proto__ === People.prototype; // true
 2. 闭包中自由变量的查找，是在函数定义的地方，向上级作用域查找，不是在执行的地方
 3. 闭包的应用
    - 隐藏数据（私有变量）
-   -
 
 ## 4. this
 

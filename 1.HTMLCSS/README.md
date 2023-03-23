@@ -118,21 +118,38 @@
 
 ## 6. flex 布局
 
-### flex 实现一个三点的骰子
+### 1. 基本概念
 
-1. 常用语法回顾
-   - flex-direction： 主轴方向
-   - justify-content：主轴对齐方式
-   - align-items：交叉轴对齐方式
-   - flex-wrap：换行
-   - align-self：子元素在交叉轴的对齐方式
+1. flex container
+2. flex item
+3. 主轴 main axis
+4. 交叉轴 cross axis
+
+### 2. 应用
+
+1. 在布局时通过为容器指定 `display` 属性 `flex` 或者 `inline-flex`
+2. 然后设置容器的 `flex-direction`， `justify-content` 等属性，来控制 flex item 在主轴和交叉轴上的排列方式和对齐方式
+3. 也可以单独为每个 flex item 设置 `flex` 属性来控制其在主轴的占比和对齐方式
+
+### 3. 优缺点
+
+1. 优点：布局灵活，响应式设计，适合复杂的页面布局
+2. 缺点：兼容性不是很好
+
+### 4. 常用语法回顾
+
+- `flex-direction`： 主轴方向
+- `justify-content`：主轴对齐方式
+- `align-items`：交叉轴对齐方式
+- `flex-wrap`：换行
+- `align-self`：子元素在交叉轴的对齐方式
 
 ## 7. CSS 定位
 
 ### 1. absolute 和 relative 分别一句什么定位
 
-1. relative 依据自身定位
-2. absolute 依据最近一层是定位元素定位
+1. `relative` 依据自身定位
+2. `absolute` 依据最近一层是定位元素定位
 3. 定位元素
    - absolute relative fixed
    - 如果没有找到父元素是定位元素，那么 body 为定位元素

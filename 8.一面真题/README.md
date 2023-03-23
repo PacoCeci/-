@@ -3,6 +3,12 @@
 1. var 是 ES5 及之前的语法，let const 是 ES6 语法
 2. var 和 let 是变量，可修改；const 是常量，不可修改
 3. var 有变量提升，let const 没有
+   - let 和 const 在声明前使用会出现暂时性死区，即当前块级作用域内，在声明之前访问该变量会抛出 ReferenceError
+   - 暂时性死区解决方法
+     - 合理规划变量声明的位置：在使用变量之前进行声明
+     - 使用`var`定义变量
+     - 使用`typeof`判断变量是否已经声明
+     - 使用函数包装变量声明：在函数内部进行变量声明
 
 ```js
 // var 变量提升
@@ -14,7 +20,7 @@ console.log('b', b); // ReferenceError: b is not defined
 let b = 200;
 ```
 
-4. var 没有块级作用域，let const 有 （ES6 语法有块级作用域）
+1. var 没有块级作用域，let const 有 （ES6 语法有块级作用域）
 
 ```js
 // var 没有块级作用域

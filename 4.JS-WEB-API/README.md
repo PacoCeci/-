@@ -110,6 +110,29 @@ for(let i = 0; i < length; i++) { ... }
    - 减少内存消耗，提高性能 (1 vs n)
    - 代码简洁，简化了 dom 节点更新时，对其所绑定的事件的更新
 
+## 2. 事件对象里，target 和 currentTarget 的区别
+
+1. target：触发事件的元素
+2. currentTarget：绑定事件的元素
+
+```js
+<div id='outer'>
+  <div id='inner'>click</div>
+</div>;
+
+// 当点击inner时
+
+document.querySelector('#inner').addEventListerner('click', (event) => {
+  console.log(event.target.id); // inner
+  console.log(event.currentTarget.id); // inner
+});
+
+document.querySelector('#outer').addEventListerner('click', (event) => {
+  console.log(event.target.id); // inner
+  console.log(event.currentTarget.id); //outer
+});
+```
+
 # 4. AJAX
 
 ## 1. `XMLHttpRequest()`
