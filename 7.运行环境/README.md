@@ -29,7 +29,8 @@
 ## 5. 从输入 url 到渲染出页面的整个过程
 
 1. 通过 DNS 将 URL 解析成 IP 地址
-   - 递归寻找过程: 浏览器 -> 系统 -> 路由器 -> ISP
+   - hosts 文件和 hosts 缓存
+   - 本地 DNS -> 根 DNS -> 顶级 DNS -> 权威 DNS
 2. 检查浏览器是否有缓存
 3. 与 WEB 服务器建立 TCP/IP 三次握手连接
 4. 浏览器向 WEB 服务器发送 HTTP 请求
@@ -38,7 +39,7 @@
    - DOM 树：解析 HTML 构建 DOM(DOM 树)
    - CSS 树：解析 CSS 构建 CSSOM(CSS 树)
    - 渲染树：CSSOM 和 DOM 一起生成 Render Tree(渲染树)
-   - 布局（layout）：根据 Render Tree 浏览器就知道网页中有哪些节点，以及各个节点与 CSS 的关系，从而知道每个节点的位置和几何属性（重排）
+     - 布局（layout）：根据 Render Tree 浏览器就知道网页中有哪些节点，以及各个节点与 CSS 的关系，从而知道每个节点的位置和几何属性（重排）
    - 绘制（Paint）：根据计算好的信息绘制整个页面（重绘）
 7. 四次挥手断开连接
 
