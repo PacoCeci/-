@@ -4,12 +4,12 @@
  */
 
 export function customNew<T>(constructor: Function, ...args: any[]): T {
-    // 1. 创建一个空对象，继承 constructor 的原型
-    const obj = Object.create(constructor.prototype)
+    // 1. 创建一个空对象，继承构造函数的原型
+    const obj = Object.create(constructor.prototype);
     // 2. 将 obj 作为 this ，执行 constructor ，传入参数
-    constructor.apply(obj, args)
+    constructor.apply(obj, args);
     // 3. 返回 obj
-    return obj
+    return obj;
 }
 
 // class Foo {

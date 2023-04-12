@@ -8,18 +8,18 @@
  * @param arr arr
  */
 export function flattenDeep1(arr: any[]): any[] {
-    const res: any[] = []
+    const res: any[] = [];
 
-    arr.forEach(item => {
+    arr.forEach((item) => {
         if (Array.isArray(item)) {
-            const flatItem = flattenDeep1(item) // 递归
-            flatItem.forEach(n => res.push(n))
+            const flatItem = flattenDeep1(item); // 递归
+            flatItem.forEach((n) => res.push(n));
         } else {
-            res.push(item)
+            res.push(item);
         }
-    })
+    });
 
-    return res
+    return res;
 }
 
 /**
@@ -27,20 +27,37 @@ export function flattenDeep1(arr: any[]): any[] {
  * @param arr arr
  */
 export function flattenDeep2(arr: any[]): any[] {
-    let res: any[] = []
+    let res: any[] = [];
 
-    arr.forEach(item => {
+    arr.forEach((item) => {
         if (Array.isArray(item)) {
-            const flatItem = flattenDeep2(item) // 递归
-            res = res.concat(flatItem)
+            const flatItem = flattenDeep2(item); // 递归
+            res = res.concat(flatItem);
         } else {
-            res = res.concat(item)
+            res = res.concat(item);
         }
-    })
+    });
 
-    return res
+    return res;
 }
 
+/**
+ * 数组深度扁平化，使用栈
+ * @param arr arr
+ */
+export function flattenDeep3(arr: any[]): any[] {
+    let res: any[] = [];
+
+    while (arr.length) {
+        var item = arr.pop();
+        if (Array.isArray(item)) {
+            arr.push(...item);
+        } else {
+            res.push(item);
+        }
+    }
+    return res.reverse();
+}
 
 // // 功能测试
 // const arr = [1, [2, [3, ['a', [true], 'b'], 4], 5], 6]
