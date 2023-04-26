@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTMLCSS</title>
+  </head>
+
+  <style>
+    html * {
+      padding: 0;
+      margin: 0;
+    }
+
+    .container {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .main {
+      display: flex;
+      flex-grow: 1;
+    }
+    .header,
+    .footer {
+      height: 100px;
+      background-color: rgb(50, 47, 43);
+    }
+    .left,
+    .right {
+      width: 200px;
+      background-color: rgb(64, 145, 145);
+    }
+    .content {
+      flex-grow: 1;
+      border: 1px solid #8d0d0d;
+    }
+  </style>
+
+  <body>
+    <div class="container">
+      <header class="header"></header>
+      <section class="main">
+        <aside class="left"></aside>
+        <main class="content"></main>
+        <aside class="right"></aside>
+      </section>
+      <footer class="footer"></footer>
+    </div>
+  </body>
+</html>
