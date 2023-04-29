@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>天气案例</title>
+    <!-- 引入Vue -->
+    <script type="text/javascript" src="../js/vue.js"></script>
+  </head>
+  <body>
+    <!-- 准备好一个容器-->
+    <div id="root">
+      <h2>今天天气很{{info}}</h2>
+      <button @click="changWeather">切换天气</button>
+      <hr />
+      <h3>a的值是{{numbers.a}}</h3>
+      <button @click="numbers.a++">a变化</button>
+    </div>
+  </body>
+
+  <script type="text/javascript">
+    Vue.config.productionTip = false;
+
+    const vm = new Vue({
+      el: '#root',
+      data: {
+        isHot: true,
+        numbers: {
+          a: 1,
+          b: 2,
+        },
+      },
+      computed: {
+        info() {
+          return this.isHot ? '热' : '冷';
+        },
+      },
+      methods: {
+        changWeather() {
+          this.isHot = !this.isHot;
+        },
+      },
+      watch: {
+        isHot: {
+          immediate: true,
+          handler(newValue, oldValue) {
+            console.log('isHot changed', newValue, oldValue);
+          },
+        },
+        info(newValue, oldValue) {
+          console.log('info changed from watch', newValue, oldValue);
+        },
+        'numbers.a': {
+          handler(newValue, oldValue) {
+            console.log('a changed', newValue, oldValue);
+          },
+        },
+        numbers: {
+          deep: true,
+          handler(newValue, oldValue) {
+            console.log('numbers changed', newValue, oldValue);
+          },
+        },
+      },
+    });
+
+    vm.$watch('info', {
+      immediate: true,
+      handler(newValue, oldValue) {
+        console.log('info changed from $watch', newValue, oldValue);
+      },
+    });
+  </script>
+</html>
