@@ -39,11 +39,13 @@ export default {
     addTodo(todo) {
       this.todos.unshift(todo);
     },
-    checkAllTodo() {
-      console.log('checkAllTodo');
+    checkAllTodo(done) {
+      this.todos.forEach((todo) => {
+        todo.done = done;
+      });
     },
     clearAllTodo() {
-      console.log('clearAllTodo');
+      this.todos = this.todos.filter((todo) => !todo.done);
     },
     checkTodo(id) {
       this.todos.forEach((todo) => {

@@ -1,5 +1,5 @@
 <template>
-  <div class="todo-footer" v-show="total">
+  <div class="todo-footer" v-show="total > 0">
     <label>
       <!-- <input type="checkbox" :checked="isAll" @change="checkAll"/> -->
       <input type="checkbox" v-model="isAll" />
@@ -26,6 +26,19 @@ export default {
     },
     total() {
       return this.todos.length;
+    },
+    isAll: {
+      get() {
+        return this.total === this.doneTotal && this.total > 0;
+      },
+      set(value) {
+        this.checkAllTodo(value);
+      },
+    },
+  },
+  methods: {
+    clearAll() {
+      this.clearAllTodo();
     },
   },
   props: {
