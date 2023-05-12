@@ -53,29 +53,19 @@
 
     <script src="https://cdn.bootcdn.net/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
     <script>
-      function mapImagesAndTryLoad() {
-        const images = document.querySelectorAll('img[data-src]');
-        if (images.length === 0) return;
-
-        images.forEach((img) => {
-          const rect = img.getBoundingClientRect();
-          if (rect.top < window.innerHeight) {
-            // 漏出来
-            // console.info('loading img', img.dataset.src)
-            img.src = img.dataset.src;
-            img.removeAttribute('data-src'); // 移除 data-src 属性，为了下次执行时减少计算成本
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.intersectionRatio > 0) {
+            var target = entry.target;
+            target.src = target.dataset.src;
+            io.unobserve(target);
           }
         });
-      }
+      });
 
-      window.addEventListener(
-        'scroll',
-        _.throttle(() => {
-          mapImagesAndTryLoad();
-        }, 100)
-      );
-
-      mapImagesAndTryLoad();
+      document.querySelectorAll('img').forEach((img) => {
+        io.observe(img);
+      });
     </script>
   </body>
 </html>
